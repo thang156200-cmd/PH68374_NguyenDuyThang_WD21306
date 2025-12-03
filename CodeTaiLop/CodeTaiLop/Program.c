@@ -27,7 +27,7 @@ void chucnang2chieu()
 void demoSetring()
 {
     // string 
-    char name[50] = "A quan";//{ 'A', 'q', 'u', 'a', 'u' };"A quan"
+    char name[50] = "A Thang";//{ 'T', 'h', 'a', 'n', 'g' };"A thang"
     //gest(name);
     //fgest(name);
 
@@ -39,7 +39,7 @@ void demoSetring()
     printf("nhap ten cua ban: ");
     fgets(name, sizeof(name), stdin);
     // xuat du lieu = for + printf
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 50; i++)
     {
         printf("%c", name[i]);
     }
