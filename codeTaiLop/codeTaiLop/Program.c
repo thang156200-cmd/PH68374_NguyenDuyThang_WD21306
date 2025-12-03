@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void chucNang2Chieu()
+void chucnang2chieu()
 {
     int array[2][3];
     for (int i = 0; i < 2; i++)
@@ -27,7 +27,7 @@ void chucNang2Chieu()
 
 int main()
 {
-    chucNang2Chieu();
+    chucnang2chieu();
 }
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
