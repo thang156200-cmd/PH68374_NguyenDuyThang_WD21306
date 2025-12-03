@@ -292,7 +292,7 @@ void xaydunggame()
 }
 void xaydungchuongtrinhtinhtoanphanso()
 {
-    printf(" => Xay dung chuong trinh tinh toan phan so\n");
+    printf(" \n=> Xay dung chuong trinh tinh toan phan so\n");
 }
 
 int main()
