@@ -193,7 +193,7 @@ void tinhtiendien()
             total += remaining * 2927;
         }
 
-        printf("So tien dien phai tra: %.0f dong\n", total);
+        printf("\nSo tien dien phai tra: %.0f dong\n", total);
 
         return 0;
 }
