@@ -4,6 +4,16 @@
 #include <stdio.h>
 #include <math.h>
 
+void laplai(void(*hamchucnang)())
+{
+	char tieptuc;
+	do
+	{
+		hamchucnang();
+		printf("\nBan co muon tiep tuc chuc nang khong? (y/n): ");
+		scanf_s(" %c", &tieptuc);
+	} while (tieptuc == 'y');
+}
 void thongtinmonhoc()
 {
 	char ten[50];
@@ -20,10 +30,10 @@ void thongtinmonhoc()
 	printf("Vui long nhap tin chi: ");
 	scanf_s("%d", &tinChi);
 	int hocPhi = tinChi * hocPhiMotTin;
-	printf("Ten mon hoc: %s", ten);
-	printf("\nMa mon hoc: %d", maMon);
-	printf("\nSo tin chi: %d", tinChi);
-	printf("\nHoc phi: %d VND\n", hocPhi);
+	printf("-->Ten mon hoc:%s", ten);
+	printf("-->Ma mon hoc: %d", maMon);
+	printf("\n-->So tin chi: %d", tinChi);
+	printf("\n-->Hoc phi: %d VND", hocPhi);
 }
 void tinhtongsole()
 {
@@ -44,7 +54,45 @@ void tinhtongsole()
 }
 void thongtindiemlab()
 {
-
+	//nhap diem
+	float array[100]; 
+    int n;
+	printf("Nhap so sinh vien: ");
+	scanf_s("%d", &n);
+	for (int i = 0;i<n; i++)
+	{
+		printf("Nhap diem sinh vien %d: ", i + 1);
+		scanf_s("%f", &array[i]);
+	}
+	// xuat diem
+	printf("\nDanh sach diem sinh vien:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("Diem sinh vien %d: %.2f\n",i + 1,array[i] + 1);
+	}
+	//Tinh diem trung binh
+	float sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += array[i];
+	}
+	//Diem cao nhat
+	float max = array[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (array[i] > max)
+			max = array[i];
+	}
+	//Diem > 5
+	int c=0;
+	for (int i = 0; i < n; i++)
+	{
+		if (array[i] >= 5)
+			c++;
+	}
+	printf("\nDiem trung binh: %.2f", sum);
+	printf("\nDiem cao nhat:%f", max);
+	printf("\nDiem so lon hon 5:%d ", c);
 }
 
 int main()
@@ -62,13 +110,13 @@ int main()
 		switch (chon)
 		{
 		case 1:
-			thongtinmonhoc();
+			laplai(thongtinmonhoc);
 			break;
 		case 2:
-			tinhtongsole();
+			laplai(tinhtongsole);
 			break;
 		case 3:
-			thongtindiemlab();
+			laplai(thongtindiemlab);
 			break;
 		}
 	} while (chon != 0);

@@ -1,4 +1,4 @@
-﻿
+﻿    
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
@@ -7,7 +7,6 @@
 void laplai(void(*hamchucnang)())
 {
     char tieptuc;
-
     do {
         hamchucnang();
         printf("\nBan co muon tiep tuc chuc nang nay khong? (y/n): ");
