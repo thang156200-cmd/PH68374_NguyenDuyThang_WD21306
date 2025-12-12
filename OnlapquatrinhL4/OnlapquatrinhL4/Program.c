@@ -21,7 +21,7 @@ void thongtinmonhoc()
 	const int hocPhiMotTin = 500000;
 	while (getchar() != '\n')
 	{
-		printf("%s", getchar());
+		printf("%c", getchar());
 	}
 	printf("Vui long nhap ten mon hoc: ");
 	fgets(ten, sizeof(ten), stdin);
@@ -68,13 +68,14 @@ void thongtindiemlab()
 	printf("\nDanh sach diem sinh vien:\n");
 	for (int i = 0; i < n; i++)
 	{
-		printf("Diem sinh vien %d: %.2f\n",i + 1,array[i] + 1);
+		printf("Diem sinh vien %d: %.3f\n",i + 1,array[i] + 1);
 	}
 	//Tinh diem trung binh
 	float sum = 0;
 	for (int i = 0; i < n; i++)
 	{
 		sum += array[i];
+		
 	}
 	//Diem cao nhat
 	float max = array[0];
@@ -90,9 +91,9 @@ void thongtindiemlab()
 		if (array[i] >= 5)
 			c++;
 	}
-	printf("\nDiem trung binh: %.2f", sum);
-	printf("\nDiem cao nhat:%f", max);
-	printf("\nDiem so lon hon 5:%d ", c);
+	printf("\nDiem trung binh%d : %.2f" , sum);
+	printf("\nDiem cao nhat:%.2f", max);
+	printf("\nDiem so lon hon > 5: %d ",c);
 }
 
 int main()
