@@ -5,11 +5,14 @@
 #include <math.h>
 void laplai(void(*hamchucnang)())
 {
-	hamchucnang();
+	
 	char tieptuc;
-	printf("\nBan co muon tiep tuc chuc nang nay khong (y/n): ");
-	scanf_s(" %c", &tieptuc);
-	while (tieptuc == 'y');
+	do
+	{
+		hamchucnang();
+		printf("\nBan co muon tiep tuc chuc nang nay khong (y/n): ");
+		scanf_s(" %c", &tieptuc);
+	} while (tieptuc == 'y');
 }
 
 void thongTinThuCung()
@@ -53,15 +56,18 @@ void thongTinThuCung()
 	tuoi3 = 2025 - nam3;
 
 	printf("\nTen thu cung 1: %s", ten1);
-	printf("ma thu cung 1: %d", ma1);
-	printf("\ntuoi thu cung 1: %d", tuoi1);
+	printf("Ma thu cung 1: %d", ma1);
+	printf("\nNam sinh thu cung 1: %d", nam1);
 	printf("\nTen thu cung 2: %s", ten2);
-	printf("ma thu cung 2: %d", ma2);
-	printf("\ntuoi thu cung 2: %d", tuoi2);
+	printf("Maa thu cung 2: %d", ma2);
+	printf("\nNam sinh thu cung 2: %d", nam2);
 	printf("\nTen thu cung 3: %s", ten3);
-	printf("ma thu cung 3: %d", ma3);
-	printf("\ntuoi thu cung 3: %d", tuoi3);
-
+	printf("Maa thu cung 3: %d", ma3);
+	printf("\nNam sinh thu cung 3: %d", nam3);
+	printf("\n");
+	printf("\nTuoi cua thu cung 1 la: %d", tuoi1);
+	printf("\nTuoi cua thu cung 2 la: %d", tuoi2);
+	printf("\nTuoi cua thu cung 3 la: %d", tuoi3);
 
 }
 void tinhTong()
@@ -93,8 +99,38 @@ void tinhTong()
 }
 void thongTinCuaHang()
 {
-
+	int n; float sum = 0, count = 0;
+	int array[100];
+	printf("So luong thu cung: ");
+	scanf_s("%d", &n);
+	for (int i = 0; i < n; i++)
+	{
+		printf("Nhap so can nang cua thu cung %d: ",i + 1);
+		scanf_s("%d",&array[i]);
+		sum += array[i];
+		count++;
+	}
+	//tinh can nang trung binh
+	float tb = (float)sum / count;
+	printf("\nCan nang trung binh cua thu cung la: %.2f", tb);
+	//Tinh can nang thap nhat
+	float min = array[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (array[i] < min)
+			min = array[i];
+	}
+	printf("\nThu cung co can nang thap nhat: %.2f", min);
+	//So thu cung co can nang duoi trung binh
+	int yeu = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (array[i] <= 25)
+			yeu++;
+	}
+	printf("\nSo thu cung co can nang duoi trung binh la: %d", yeu);
 }
+
 
 int main()
 {
@@ -118,6 +154,9 @@ int main()
 			break;
 		case 3:
 			laplai(thongTinCuaHang);
+			break;
+		default:
+				printf("\nKhong co trong MENU. Vui long chon lai");
 			break;
 		}
 

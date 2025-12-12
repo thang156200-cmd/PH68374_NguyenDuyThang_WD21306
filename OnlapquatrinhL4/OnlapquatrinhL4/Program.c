@@ -55,7 +55,7 @@ void tinhtongsole()
 void thongtindiemlab()
 {
 	//nhap diem
-	float array[100]; 
+	float array[100], count = 0, sum = 0;
     int n;
 	printf("Nhap so sinh vien: ");
 	scanf_s("%d", &n);
@@ -63,20 +63,18 @@ void thongtindiemlab()
 	{
 		printf("Nhap diem sinh vien %d: ", i + 1);
 		scanf_s("%f", &array[i]);
+		sum += array[i];
 	}
 	// xuat diem
 	printf("\nDanh sach diem sinh vien:\n");
 	for (int i = 0; i < n; i++)
 	{
-		printf("Diem sinh vien %d: %.3f\n",i + 1,array[i] + 1);
+		printf("Diem sinh vien %d: %.3f\n",i + 1,array[i]);
+        
 	}
 	//Tinh diem trung binh
-	float sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += array[i];
-		
-	}
+	 float tb = (float)sum / n;
+	printf("Diem trung binh la: %.2f", tb);
 	//Diem cao nhat
 	float max = array[0];
 	for (int i = 1; i < n; i++)
@@ -91,7 +89,6 @@ void thongtindiemlab()
 		if (array[i] >= 5)
 			c++;
 	}
-	printf("\nDiem trung binh%d : %.2f" , sum);
 	printf("\nDiem cao nhat:%.2f", max);
 	printf("\nDiem so lon hon > 5: %d ",c);
 }
